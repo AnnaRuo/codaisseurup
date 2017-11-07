@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @event.name %></div>
+
+  <div class="panel-body">
+
+    <h4>Location:</h4> <p><%= @event.location %></p>
+    <h4>Host: </h4> <p><%= @event.user.email %></p>
+
+    <!-- Main Info -->
+    <h4>Main Info</h4>
+    <p>Event Name: <%= @event.name %></p>
+    <!-- <p><%= !@event.description ? ("<s>Description</s>").html_safe : "Open event" %></p> -->
+    <!-- <p><%= @event.capacity ? "Capacity" : "test" %></p> -->
+    <p><%= !@event.capacity ? ("<s>Capacity</s>").html_safe : "Capacity 100 people" %></p>
+
+    <!-- About -->
+    <h4>About</h4>
+    <p><%= @event.description %></p>
+
+    <!-- Amenities -->
+    <h4>Details</h4>
+    <ul class="details">
+      <li><%= !@event.includes_food ? ("<s>Food</s>").html_safe : "Foods included" %></li>
+      <li><%= !@event.includes_drinks ? ("<del>Drinks</del>").html_safe : "Drinks included" %></li>
+      <li><%= !@event.starts_at ? ("<del>12/12/2017</del>").html_safe : "12/12/2017" %></li>
+      <li><%= !@event.ends_at ? ("<del>14/12/2017</del>").html_safe : "End Date" %></li>
+    </ul>
+
+  </div>
+
+</div>
+
+<%= link_to "Back", events_path, class: "btn btn-default" %>
+
+<!-- categories -->
+<h4>Categories</h4>
+<% @categories.each do |category| %>
+  <span class="label label-success"><%= category.name %></span>
+<% end %>

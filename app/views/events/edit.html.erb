@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Edit place
+  </div>
+
+  <div class="panel-body">
+    <div class="alert alert-danger" role="alert">
+      <%= @event.errors.full_messages.first if @event.errors.any?%>
+    </div>
+    <%= render 'form' %>
+  </div>
+</div>
