@@ -66,3 +66,9 @@ gem 'jquery-rails', '~> 4.3.1'
 
 # Use Devise for authentication
 gem 'devise', '~> 4.2'
+
+$:.push File.expand_path("../lib", __FILE__)
+require "date_validator/version"
+
+gem 'date_picker'
+gem 'date_validator'
