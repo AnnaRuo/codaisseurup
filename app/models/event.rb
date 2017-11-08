@@ -5,17 +5,17 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 500 }
 
-  # validate :date_valid?
-  #
-  # def date_valid?
-  #
-  #   days_difference =  (starts_at - ends_at).to_i
-  #   if days_difference < 1
-  #     return false
-  #   else
-  #     errors.add(:ends_at, "Must be after today")
-  #   end
-  # end
+  validate :date_valid?
+
+  def date_valid?
+
+    days_difference =  (starts_at - ends_at).to_i
+    if days_difference < 1
+      return false
+    else
+      errors.add(:ends_at, "Must be after today")
+    end
+  end
 #OR:
 #   validate :you_are_planning_the_past
 #

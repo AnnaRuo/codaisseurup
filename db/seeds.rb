@@ -15,7 +15,7 @@ warm_and_cozy = Category.create(name: "Warm and Cozy")
 
 
 maija = User.create!(
-  email: 'maija@gmail.com',
+  email: 'maija@example.com',
   password: '123456'
 )
 
@@ -35,7 +35,7 @@ Event.create!(
 )
 
 kalle = User.create!(
-  email: 'kalle@gmail.com',
+  email: 'kalle@example.com',
   password: '654321'
 )
 
