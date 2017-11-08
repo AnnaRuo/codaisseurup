@@ -4,8 +4,7 @@ class Event < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 500 }
-  # validates :end_date, presence: true
-  # validates :start_date, presence: true
+
   # validate :date_valid?
   #
   # def date_valid?
@@ -17,7 +16,7 @@ class Event < ApplicationRecord
   #     errors.add(:ends_at, "Must be after today")
   #   end
   # end
-
+#OR:
 #   validate :you_are_planning_the_past
 #
 #    def you_are_planning_the_past
