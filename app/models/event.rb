@@ -17,9 +17,17 @@ class Event < ApplicationRecord
     if days_difference < 1
       return false
     else
-      errors.add(:ends_at, "must be after today")
+      errors.add(:ends_at, "Must be after today")
     end
   end
+
+#MAKE A METHOD 
+  # private
+  #
+  # def ends_at
+  #
+  # end
+
   #ADD VALIDATION THAT BOTH DATES ARE ENTERED AND END DATE IS AT LEAST ONE DAY AFTER THE START DATE
 
   # validates :start_date, date: { before: :end_date }
