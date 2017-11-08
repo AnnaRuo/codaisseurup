@@ -6,34 +6,38 @@ class Event < ApplicationRecord
   validates :description, presence: true, length: { maximum: 500 }
   # validates :end_date, presence: true
   # validates :start_date, presence: true
-  validate :date_valid?
-
-  def date_valid?
-
-    # result = starts_at == '1'
-    # puts "halloooooo " + result.to_s
-    # return result
-    days_difference =  (starts_at - ends_at).to_i
-    if days_difference < 1
-      return false
-    else
-      errors.add(:ends_at, "Must be after today")
-    end
-  end
-
-#MAKE A METHOD 
-  # private
+  # validate :date_valid?
   #
-  # def ends_at
+  # def date_valid?
   #
+  #   days_difference =  (starts_at - ends_at).to_i
+  #   if days_difference < 1
+  #     return false
+  #   else
+  #     errors.add(:ends_at, "Must be after today")
+  #   end
   # end
 
-  #ADD VALIDATION THAT BOTH DATES ARE ENTERED AND END DATE IS AT LEAST ONE DAY AFTER THE START DATE
+#   validate :you_are_planning_the_past
+#
+#    def you_are_planning_the_past
+#       if startdate_before_enddate?
+#         true
+#       else
+#         errors.add(:ends_at, "End date must be at least a day later than start date.")
+#       end
+#     end
+#
+#   def startdate_before_enddate?
+#       ends_at - starts_at >= 1
+#   end
+# end
 
-  # validates :start_date, date: { before: :end_date }
+    def bargain?
+      price < 30
+    end
 
-  # validates :start_date,
-  # date: { after: Proc.new { Date.today }, message: 'must be after today' },
-  # on: :create
-
+    def self.order_by_price
+      order(:price)
+    end
 end

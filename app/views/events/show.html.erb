@@ -24,6 +24,7 @@
       <li><%= !@event.includes_drinks ? ("<del>Drinks</del>").html_safe : "Drinks included" %></li>
       <li><%= !@event.starts_at ? ("<del>12/12/2017</del>").html_safe : "12/12/2017" %></li>
       <li><%= !@event.ends_at ? ("<del>14/12/2017</del>").html_safe : "End Date" %></li>
+      <li><%= !@event.price ? ("<del>80.0</del>").html_safe : "Ticket price 80.0 euro" %></li>
     </ul>
 
   </div>
