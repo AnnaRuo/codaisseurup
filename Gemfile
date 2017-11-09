@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.4.1'
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -69,8 +69,7 @@ gem 'jquery-rails', '~> 4.3.1'
 # Use Devise for authentication
 gem 'devise', '~> 4.2'
 
-$:.push File.expand_path("../lib", __FILE__)
-require "date_validator/version"
 
 gem 'date_picker'
 gem 'date_validator'
+gem 'rails_12factor', group: :production
