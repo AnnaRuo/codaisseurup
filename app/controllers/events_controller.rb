@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @categories = @event.categories
-    @photos = @room.photos
+    @photos = @event.photos
   end
 
   def new
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   def image_params
     params[:images].present? ? params.require(:images) : []
   end
-  
+
   def set_event
     @event = Event.find(params[:id])
   end
