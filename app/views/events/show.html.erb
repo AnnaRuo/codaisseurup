@@ -24,22 +24,25 @@
       <li><%= !@event.ends_at ? ("<del>14/12/2017</del>").html_safe : "End Date: " + @event.ends_at.to_s%></li>
       <li><%= !@event.price ? ("<del>80.0</del>").html_safe : "Ticket price: " + @event.price.to_s%></li>
     </ul>
-
   </div>
-
 </div>
 
 <!-- categories -->
 <h4>Categories</h4>
-<% @categories.each do |category| %>
+<% @event.categories.each do |category| %>
   <span class="label label-success"><%= category.name %></span>
 <% end %>
-  <!-- Photos -->
-<h4>Photos</h4>
-<% @event.photos.each do |photo| %>
-  <%= image_tag photo.image %>
 
-<% end %>
+  <!-- Photos -->
+  <!-- <h4>Photos</h4>
+  <% @event.photos.each do |photo| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= image_tag photo.image.thumbnail %>
+    </div>
+  </div>
+  <% end %> -->
+  <%= render 'photos/list' %>
 
 <hr />
 
