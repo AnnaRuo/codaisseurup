@@ -18,27 +18,12 @@ class Event < ApplicationRecord
       errors.add(:ends_at, "Must be after today")
     end
   end
-#OR:
-#   validate :you_are_planning_the_past
-#
-#    def you_are_planning_the_past
-#       if startdate_before_enddate?
-#         true
-#       else
-#         errors.add(:ends_at, "End date must be at least a day later than start date.")
-#       end
-#     end
-#
-#   def startdate_before_enddate?
-#       ends_at - starts_at >= 1
-#   end
-# end
 
-    def bargain?
-      price < 30
-    end
+  def bargain?
+    price < 30
+  end
 
-    def self.order_by_price
-      order(:price)
-    end
+  def self.order_by_price
+    order(:price)
+  end
 end

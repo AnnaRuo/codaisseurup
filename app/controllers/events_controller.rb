@@ -16,7 +16,7 @@ class EventsController < ApplicationController
         @event.photos.create(image: image)
       end
 
-      redirect_to edit_event_path(@event), notice: "Event successfully updated."
+      redirect_to events_path(@event), notice: "Event successfully updated."
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
         @event.photos.create(image: image)
       end
 
-      redirect_to edit_event_path(@event), notice: "Event successfully created."
+      redirect_to events_path(@event), notice: "Event successfully created."
     else
       render :new
     end
@@ -49,7 +49,15 @@ class EventsController < ApplicationController
     @photos = @event.photos
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path
+  end
+
+
   private
+
   def image_params
     params[:images].present? ? params.require(:images) : []
   end
@@ -59,11 +67,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params
-      .require(:event)
-      .permit(
-        :name, :description, :location, :includes_food, :includes_drinks, :price,
-        :starts_at, :ends_at, :capacity, :active
-      )
+    params.require(:event).permit(:name, :description, :location, :includes_food, :includes_drinks, :price, :starts_at, :ends_at, :capacity, :active)
   end
 end

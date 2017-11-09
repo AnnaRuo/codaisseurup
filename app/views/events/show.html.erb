@@ -36,14 +36,10 @@
   <!-- Photos -->
   <!-- <h4>Photos</h4>
   <% @event.photos.each do |photo| %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= image_tag photo.image.thumbnail %>
-    </div>
-  </div>
+  <%= image_tag photo.image %>
   <% end %> -->
+
   <%= render 'photos/list' %>
+<%= link_to "Back", events_path, class: "btn btn-default" %>
 
 <hr />
-
-<%= link_to "Back", events_path, class: "btn btn-default" %>
