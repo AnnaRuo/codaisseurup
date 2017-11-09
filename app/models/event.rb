@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :categories
+  has_many :photos
 
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 500 }
@@ -8,8 +9,9 @@ class Event < ApplicationRecord
   validate :date_valid?
 
   def date_valid?
+    return unless starts_at && ends_at
 
-    days_difference =  (starts_at - ends_at).to_i
+    days_difference = (starts_at - ends_at).to_i
     if days_difference < 1
       return false
     else

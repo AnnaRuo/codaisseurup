@@ -5,20 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Photo.destroy_all
 Category.destroy_all
 User.destroy_all
+Profile.destroy_all
+Event.destroy_all
 
-
+#CATEGORIES
 modern_and_minimal = Category.create(name: "Modern and Minimal")
 sleek_and_sophisticated = Category.create(name: "Sleek and Sophisticated")
 warm_and_cozy = Category.create(name: "Warm and Cozy")
 
-
+#USERS
 maija = User.create!(
   email: 'maija@example.com',
   password: '123456'
 )
+kalle = User.create!(
+  email: 'kalle@example.com',
+  password: '654321'
+)
 
+#EVENTS
 Event.create!(
   name: "Happy Event",
   description: "Open Event",
@@ -31,12 +39,7 @@ Event.create!(
   ends_at: 16/12,
   active: true,
   user: maija,
-  category: [modern_and_minimal, sleek_and_sophisticated]
-)
-
-kalle = User.create!(
-  email: 'kalle@example.com',
-  password: '654321'
+  categories: [modern_and_minimal, sleek_and_sophisticated]
 )
 
 Event.create!(
@@ -51,5 +54,10 @@ Event.create!(
   ends_at: 5/12,
   active: true,
   user: kalle,
-  category: [modern_and_minimal, sleek_and_sophisticated]
+  categories: [modern_and_minimal, sleek_and_sophisticated]
 )
+
+#PHOTOS
+
+photo1 = Photo.create!(remote_image_url: "https://res.cloudinary.com/dqjubqikq/image/upload/t_media_lib_thumb/v1510234232/sample_qfpayr.jpg", event: Event.first)
+photo2 = Photo.create!(remote_image_url: "https://res.cloudinary.com/dqjubqikq/image/upload/t_media_lib_thumb/v1510234297/Events_e5rrgd.jpg", event: Event.first)
