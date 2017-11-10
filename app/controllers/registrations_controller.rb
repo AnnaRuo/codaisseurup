@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-before_action :authenticate_user!
+before_action :authenticate_user! #requires that user is always signed in before running create action!
   def create
     @registration = current_user.registrations.create(registation_params)
 
