@@ -10,6 +10,7 @@ Category.destroy_all
 User.destroy_all
 Profile.destroy_all
 Event.destroy_all
+Registration.destroy_all
 
 #CATEGORIES
 modern_and_minimal = Category.create(name: "Modern and Minimal")
@@ -61,3 +62,8 @@ Event.create!(
 
 photo1 = Photo.create!(remote_image_url: "https://res.cloudinary.com/dqjubqikq/image/upload/t_media_lib_thumb/v1510234232/sample_qfpayr.jpg", event: Event.first)
 photo2 = Photo.create!(remote_image_url: "https://res.cloudinary.com/dqjubqikq/image/upload/t_media_lib_thumb/v1510234297/Events_e5rrgd.jpg", event: Event.first)
+
+## REGISTRATIONS
+
+Registration.create!(event: event1, user: wouter, price: event.price, guest_count: 10)
+Registration.create!(event: event1, user: anna, price: event.price, guest_count: 20)
