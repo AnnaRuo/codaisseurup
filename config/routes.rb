@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   end
 
   get "about" => "pages#about"
+
+  namespace :api do
+    resources :events
+  end
 end

@@ -28,4 +28,10 @@ class Event < ApplicationRecord
   def self.order_by_price
     order(:price)
   end
+
+  def self.alphabetical
+    order(listing_name: :asc)
+  end
+
+  scope :registered, -> { where(active: true)}
 end
